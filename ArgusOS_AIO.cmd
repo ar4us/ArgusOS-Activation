@@ -45,44 +45,43 @@ if not defined office_detected (
 
 :: ========== COLOR SETUP ==========
 for /F %%a in ('echo prompt $E ^| cmd') do set "esc=%%a"
-set "Red=41;97m"
-set "Green=42;97m"
-set "Blue=44;97m"
-set "Yellow=43;97m"
-set "Cyan=46;97m"
-set "White=107;30m"
+set "Red=91m"
+set "Green=92m"
+set "Blue=94m"
+set "Yellow=93m"
+set "Cyan=96m"
+set "White=97m"
+set "Gray=90m"
 
 :menu
 cls
 echo.
-echo %esc%[%Green%  ========================================================%esc%[0m
-echo %esc%[%Green%  %esc%[0m
-echo %esc%[%Cyan%           AAA                                         %esc%[0m
-echo %esc%[%Cyan%          AAAAA   rrrrr   gggggg  uu   uu  sssss       %esc%[0m
-echo %esc%[%Cyan%         AA   AA  rr  rr  gg   gg uu   uu ss   s      %esc%[0m
-echo %esc%[%Cyan%        AAAAAAAAA rrrrrr  ggggggg uu   uu ssssss      %esc%[0m
-echo %esc%[%Cyan%        AA   AA  rr  rr  gg   gg uu   uu    ss      %esc%[0m
-echo %esc%[%Cyan%        AA   AA  rr   rr  gggggg   uuuuu  sssss      %esc%[0m
-echo %esc%[%Cyan%                                                     %esc%[0m
-echo %esc%[%Green%  %esc%[0m
-echo %esc%[%Green%  ========================================================%esc%[0m
-echo %esc%[%Yellow%             ArgusOS Activation v%VERSION%         %esc%[0m
-echo %esc%[%Yellow%          Windows ^& Office Activator              %esc%[0m
-echo %esc%[%Green%  ========================================================%esc%[0m
+echo %esc%[%Gray%========================================================%esc%[0m
+echo %esc%[%Cyan%    ___                         ____  _____             %esc%[0m
+echo %esc%[%Cyan%   /   ^|  _____________  ______/ __ \/ ___/             %esc%[0m
+echo %esc%[%Cyan%  / /^| ^| / ___/ __  / / / / ___/ / / /\__ \             %esc%[0m
+echo %esc%[%Cyan% / ___ ^|/ /  / /_/ / /_/ (__  ) /_/ /___/ /             %esc%[0m
+echo %esc%[%Cyan%/_/  ^|_/_/   \__, /\__,_/____/\____//____/              %esc%[0m
+echo %esc%[%Cyan%            /____/                                      %esc%[0m
+echo %esc%[%Gray%========================================================%esc%[0m
+echo %esc%[%White%      Windows ^& Office Activation Suite - v%VERSION%    %esc%[0m
+echo %esc%[%Gray%========================================================%esc%[0m
 echo.
-echo %esc%[%Green%  [1] HWID Activation        Windows 10/11 Permanent%esc%[0m
-echo %esc%[%Green%  [2] Ohook Activation       Office (All Versions)%esc%[0m
-echo %esc%[%Green%  [3] Online KMS Activation  Windows + Office 180d%esc%[0m
+echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%HWID Activation       %esc%[0m%esc%[%Gray%- Windows 10/11 Permanent%esc%[0m
+echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Ohook Activation      %esc%[0m%esc%[%Gray%- Microsoft Office Permanent%esc%[0m
+echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Online KMS Activation %esc%[0m%esc%[%Gray%- Windows ^& Office 180 Days%esc%[0m
 echo.
-echo %esc%[%Blue%  [4] Check Activation Status%esc%[0m
-echo %esc%[%Blue%  [5] Troubleshooting%esc%[0m
+echo   %esc%[%Cyan%[4]%esc%[0m %esc%[%White%Check Status          %esc%[0m%esc%[%Gray%- Verify Activation State%esc%[0m
+echo   %esc%[%Cyan%[5]%esc%[0m %esc%[%White%Troubleshooting       %esc%[0m%esc%[%Gray%- Reset or Repair Licenses%esc%[0m
 echo.
-echo %esc%[%Red%  [0] Exit%esc%[0m
+echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Exit%esc%[0m
 echo.
-echo %esc%[%Yellow%  OS: %winos% %esc%[0m
-if defined office_detected echo %esc%[%Yellow%  Office: Installed %esc%[0m
+echo %esc%[%Gray%========================================================%esc%[0m
+echo   %esc%[%Yellow%OS: %winos%%esc%[0m
+if defined office_detected echo   %esc%[%Yellow%Office: Installed (Volume License detected)%esc%[0m
+echo %esc%[%Gray%========================================================%esc%[0m
 echo.
-set /p "choice= Select option [0-5]: "
+set /p "choice=Select option [0-5]: "
 
 if "%choice%"=="1" goto hwid
 if "%choice%"=="2" goto ohook
