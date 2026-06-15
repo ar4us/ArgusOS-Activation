@@ -41,7 +41,7 @@ cd "C:\Users\ArgusOs\Desktop\cluade\win act\ArgusOS-Activation"
 git init
 git add .
 git commit -m "Initial release: ArgusOS Activation v1.0"
-git remote add origin https://github.com/ArgusOs/ArgusOS-Activation.git
+git remote add origin https://github.com/ar4us/ArgusOS-Activation.git
 git branch -M main
 git push -u origin main
 ```

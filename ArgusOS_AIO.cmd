@@ -1,5 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
+chcp 65001 >nul
 title ArgusOS Activation v1.0
 cd /d "%~dp0"
 
@@ -44,44 +45,53 @@ if not defined office_detected (
 
 :: ========== COLOR SETUP ==========
 for /F %%a in ('echo prompt $E ^| cmd') do set "esc=%%a"
-set "Red=41;97m"
-set "Green=42;97m"
-set "Blue=44;97m"
-set "Yellow=43;97m"
-set "Cyan=46;97m"
-set "White=107;30m"
+set "Red=91m"
+set "Green=92m"
+set "Blue=94m"
+set "Yellow=93m"
+set "Cyan=96m"
+set "White=97m"
+set "Gray=90m"
 
 :menu
 cls
 echo.
-echo %esc%[%White%  ========================================================%esc%[0m
-echo %esc%[%White%  %esc%[0m
-echo %esc%[%Cyan%           AAA                                         %esc%[0m
-echo %esc%[%Cyan%          AAAAA   rrrrr   gggggg  uu   uu  sssss       %esc%[0m
-echo %esc%[%Cyan%         AA   AA  rr  rr  gg   gg uu   uu ss   s      %esc%[0m
-echo %esc%[%Cyan%        AAAAAAAAA rrrrrr  ggggggg uu   uu ssssss      %esc%[0m
-echo %esc%[%Cyan%        AA   AA  rr  rr  gg   gg uu   uu    ss      %esc%[0m
-echo %esc%[%Cyan%        AA   AA  rr   rr  gggggg   uuuuu  sssss      %esc%[0m
-echo %esc%[%Cyan%                                                     %esc%[0m
-echo %esc%[%White%  %esc%[0m
-echo %esc%[%White%  ========================================================%esc%[0m
-echo %esc%[%Yellow%             ArgusOS Activation v%VERSION%         %esc%[0m
-echo %esc%[%Yellow%          Windows ^& Office Activator              %esc%[0m
-echo %esc%[%White%  ========================================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[96m  ___                         ____  _____               %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[96m /   ^|  _____________  ______/ __ \/ ___/               %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[96m/ /^| ^| / ___/ __  / / / / ___/ / / /\__ \               %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[96m/ ___ ^|/ /  / /_/ / /_/ (__  ) /_/ /___/ /               %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m%esc%[96m/_/  ^|_/_/   \__, /\__,_/____/\____//____/               %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[96m            /____/                                      %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m├────────────────────────────────────────────────────────┤%esc%[0m
+echo %esc%[90m│%esc%[0m %esc%[97m  Windows ^& Office Activation Suite - Version %VERSION%      %esc%[0m%esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-echo %esc%[%Green%  [1] HWID Activation        Windows 10/11 Permanent%esc%[0m
-echo %esc%[%Green%  [2] Ohook Activation       Office (All Versions)%esc%[0m
-echo %esc%[%Green%  [3] Online KMS Activation  Windows + Office 180d%esc%[0m
+echo  %esc%[96m[1]%esc%[97m HWID Activation       %esc%[90m- Windows 10/11 Permanent%esc%[0m
+echo  %esc%[96m[2]%esc%[97m Ohook Activation      %esc%[90m- Microsoft Office Permanent%esc%[0m
+echo  %esc%[96m[3]%esc%[97m Online KMS Activation %esc%[90m- Windows ^& Office 180 Days%esc%[0m
 echo.
-echo %esc%[%Blue%  [4] Check Activation Status%esc%[0m
-echo %esc%[%Blue%  [5] Troubleshooting%esc%[0m
+echo  %esc%[96m[4]%esc%[97m Check Status          %esc%[90m- Verify Activation State%esc%[0m
+echo  %esc%[96m[5]%esc%[97m Troubleshooting       %esc%[90m- Reset or Repair Licenses%esc%[0m
 echo.
-echo %esc%[%Red%  [0] Exit%esc%[0m
+echo  %esc%[91m[0]%esc%[97m Exit%esc%[0m
 echo.
-echo %esc%[%Yellow%  OS: %winos% %esc%[0m
-if defined office_detected echo %esc%[%Yellow%  Office: Installed %esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+set "padded_os=  OS: %winos%                                                          "
+set "padded_os=!padded_os:~0,54!"
+echo %esc%[90m│%esc%[93m !padded_os! %esc%[90m│%esc%[0m
+if defined office_detected (
+    set "padded_off=  Office: Installed (Volume License detected)                      "
+    set "padded_off=!padded_off:~0,54!"
+    echo %esc%[90m│%esc%[93m !padded_off! %esc%[90m│%esc%[0m
+) else (
+    set "padded_off=  Office: Not detected                                             "
+    set "padded_off=!padded_off:~0,54!"
+    echo %esc%[90m│%esc%[90m !padded_off! %esc%[90m│%esc%[0m
+)
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-set /p "choice= Select option [0-5]: "
+set /p "choice= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect option [0-5]: %esc%[0m"
 
 if "%choice%"=="1" goto hwid
 if "%choice%"=="2" goto ohook
@@ -97,10 +107,10 @@ goto menu
 :hwid
 cls
 echo.
-echo %esc%[%Cyan%  =============================================%esc%[0m
-echo %esc%[%Cyan%         HWID Activation                        %esc%[0m
-echo %esc%[%Cyan%    Windows 10/11 Digital License               %esc%[0m
-echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m                     %esc%[96mHWID ACTIVATION%esc%[0m                    %esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m              %esc%[97mWindows 10/11 Digital License%esc%[0m             %esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required for this method%esc%[0m
 echo.
@@ -148,10 +158,10 @@ goto menu
 :ohook
 cls
 echo.
-echo %esc%[%Cyan%  =============================================%esc%[0m
-echo %esc%[%Cyan%         Ohook Activation                       %esc%[0m
-echo %esc%[%Cyan%    Office Permanent Activation                 %esc%[0m
-echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m                    %esc%[96mOHOOK ACTIVATION%esc%[0m                    %esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m               %esc%[97mOffice Permanent Activation%esc%[0m              %esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
@@ -198,21 +208,22 @@ goto menu
 :onlinekms
 cls
 echo.
-echo %esc%[%Cyan%  =============================================%esc%[0m
-echo %esc%[%Cyan%       Online KMS Activation                    %esc%[0m
-echo %esc%[%Cyan%    Windows + Office - 180 Days Auto-Renew      %esc%[0m
-echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m                  %esc%[96mONLINE KMS ACTIVATION%esc%[0m                 %esc%[90m│%esc%[0m
+echo %esc%[90m│%esc%[0m         %esc%[97mWindows + Office - 180 Days Auto-Renew%esc%[0m         %esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
 echo  Select target:
 echo.
-echo %esc%[%Green%  [1] Activate Windows%esc%[0m
-echo %esc%[%Green%  [2] Activate Office%esc%[0m
-echo %esc%[%Green%  [3] Activate Both (Windows + Office)%esc%[0m
-echo %esc%[%Red%  [0] Back to Main Menu%esc%[0m
+echo  %esc%[96m[1]%esc%[97m Activate Windows%esc%[0m
+echo  %esc%[96m[2]%esc%[97m Activate Office%esc%[0m
+echo  %esc%[96m[3]%esc%[97m Activate Both (Windows + Office)%esc%[0m
 echo.
-set /p "kms_choice= Select [0-3]: "
+echo  %esc%[91m[0]%esc%[97m Back to Main Menu%esc%[0m
+echo.
+set /p "kms_choice= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect [0-3]: %esc%[0m"
 
 if "%kms_choice%"=="1" goto kmswin
 if "%kms_choice%"=="2" goto kmsoffice
@@ -279,9 +290,9 @@ goto menu
 :checkstatus
 cls
 echo.
-echo %esc%[%Cyan%  =============================================%esc%[0m
-echo %esc%[%Cyan%        Activation Status Check                %esc%[0m
-echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m                 %esc%[96mACTIVATION STATUS CHECK%esc%[0m                %esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Blue%  Windows Status:%esc%[0m
 cscript //nologo %windir%\system32\slmgr.vbs /xpr 2>nul | findstr /v "ERROR"
@@ -310,17 +321,18 @@ goto menu
 :troubleshoot
 cls
 echo.
-echo %esc%[%Cyan%  =============================================%esc%[0m
-echo %esc%[%Cyan%         Troubleshooting Tools                 %esc%[0m
-echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[90m│%esc%[0m                  %esc%[96mTROUBLESHOOTING TOOLS%esc%[0m                 %esc%[90m│%esc%[0m
+echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-echo %esc%[%Green%  [1] Reset Windows Activation%esc%[0m
-echo %esc%[%Green%  [2] Reset Office Activation%esc%[0m
-echo %esc%[%Green%  [3] Check Services%esc%[0m
-echo %esc%[%Green%  [4] Fix Licensing (Reinstall tokens)%esc%[0m
-echo %esc%[%Red%  [0] Back to Menu%esc%[0m
+echo  %esc%[96m[1]%esc%[97m Reset Windows Activation%esc%[0m
+echo  %esc%[96m[2]%esc%[97m Reset Office Activation%esc%[0m
+echo  %esc%[96m[3]%esc%[97m Check Services%esc%[0m
+echo  %esc%[96m[4]%esc%[97m Fix Licensing (Reinstall tokens)%esc%[0m
 echo.
-set /p "tch= Select [0-4]: "
+echo  %esc%[91m[0]%esc%[97m Back to Menu%esc%[0m
+echo.
+set /p "tch= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect [0-4]: %esc%[0m"
 
 if "%tch%"=="1" (
     echo %esc%[%Yellow%  [*] Resetting Windows activation...%esc%[0m
