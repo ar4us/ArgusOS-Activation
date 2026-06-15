@@ -77,21 +77,12 @@ echo.
 echo  %esc%[91m[0]%esc%[97m Exit%esc%[0m
 echo.
 echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-set "padded_os=  OS: %winos%                                                          "
-set "padded_os=!padded_os:~0,54!"
-echo %esc%[90m│%esc%[93m !padded_os! %esc%[90m│%esc%[0m
-if defined office_detected (
-    set "padded_off=  Office: Installed (Volume License detected)                      "
-    set "padded_off=!padded_off:~0,54!"
-    echo %esc%[90m│%esc%[93m !padded_off! %esc%[90m│%esc%[0m
-) else (
-    set "padded_off=  Office: Not detected                                             "
-    set "padded_off=!padded_off:~0,54!"
-    echo %esc%[90m│%esc%[90m !padded_off! %esc%[90m│%esc%[0m
-)
+echo %esc%[90m│%esc%[93m   OS: %winos%%esc%[0m
+if defined office_detected echo %esc%[90m│%esc%[93m   Office: Installed%esc%[0m
+if not defined office_detected echo %esc%[90m│%esc%[90m   Office: Not detected%esc%[0m
 echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-set /p "choice= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect option [0-5]: %esc%[0m"
+set /p "choice= Select option [0-5]: "
 
 if "%choice%"=="1" goto hwid
 if "%choice%"=="2" goto ohook
@@ -223,7 +214,7 @@ echo  %esc%[96m[3]%esc%[97m Activate Both (Windows + Office)%esc%[0m
 echo.
 echo  %esc%[91m[0]%esc%[97m Back to Main Menu%esc%[0m
 echo.
-set /p "kms_choice= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect [0-3]: %esc%[0m"
+set /p "kms_choice= Select [0-3]: "
 
 if "%kms_choice%"=="1" goto kmswin
 if "%kms_choice%"=="2" goto kmsoffice
@@ -332,7 +323,7 @@ echo  %esc%[96m[4]%esc%[97m Fix Licensing (Reinstall tokens)%esc%[0m
 echo.
 echo  %esc%[91m[0]%esc%[97m Back to Menu%esc%[0m
 echo.
-set /p "tch= %esc%[96mArgusOS %esc%[90m> %esc%[97mSelect [0-4]: %esc%[0m"
+set /p "tch= Select [0-4]: "
 
 if "%tch%"=="1" (
     echo %esc%[%Yellow%  [*] Resetting Windows activation...%esc%[0m
