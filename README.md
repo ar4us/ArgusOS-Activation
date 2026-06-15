@@ -7,7 +7,7 @@ Open-source Windows and Office activator featuring HWID, Ohook, and Online KMS a
 Run PowerShell as **Administrator** and execute:
 
 ```powershell
-irm https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/launcher.ps1 | iex
+irm https://raw.githubusercontent.com/ar4us/ArgusOS-Activation/main/launcher.ps1 | iex
 ```
 
 Or download `ArgusOS_AIO.cmd` manually, right-click and **Run as Administrator**.
@@ -46,9 +46,9 @@ git branch -M main
 git push -u origin main
 ```
 
-3. After uploading, the PowerShell command will work (replace `ArgusOs` with your GitHub username):
+3. After uploading, the PowerShell command:
 ```powershell
-irm https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/launcher.ps1 | iex
+irm https://raw.githubusercontent.com/ar4us/ArgusOS-Activation/main/launcher.ps1 | iex
 ```
 
 ## How It Works

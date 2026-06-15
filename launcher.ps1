@@ -1,11 +1,11 @@
 <#
  ArgusOS Activation - PowerShell Launcher
- Use with: irm https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/launcher.ps1 | iex
+ Use with: irm https://raw.githubusercontent.com/ar4us/ArgusOS-Activation/main/launcher.ps1 | iex
 #>
 
 $projectName = "ArgusOS Activation"
 $version = "1.0"
-$scriptUrl = "https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/ArgusOS_AIO.cmd"
+$scriptUrl = "https://raw.githubusercontent.com/ar4us/ArgusOS-Activation/main/ArgusOS_AIO.cmd"
 $tempFile = "$env:TEMP\ArgusOS_AIO_$([System.Guid]::NewGuid().ToString('N')).cmd"
 
 Write-Host "========================================" -ForegroundColor Cyan
