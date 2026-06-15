@@ -2,19 +2,15 @@
 
 Open-source Windows and Office activator featuring HWID, Ohook, and Online KMS activation methods.
 
-## Quick Start (PowerShell) - الطريقة الصحيحة
-
-**⚠️ Important:** Use `launcher.ps1` ONLY. Do NOT pipe `ArgusOS_AIO.cmd` directly through `iex`.
+## Quick Start (PowerShell)
 
 Run PowerShell as **Administrator** and execute:
 
 ```powershell
-irm https://raw.githubusercontent.com/ar4us/ArgusOS-Activation/main/launcher.ps1 | iex
+irm https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/launcher.ps1 | iex
 ```
 
-## Alternative: Direct Download
-
-Download `ArgusOS_AIO.cmd` manually, then **right-click → Run as Administrator**.
+Or download `ArgusOS_AIO.cmd` manually, right-click and **Run as Administrator**.
 
 ## Activation Methods
 
@@ -28,14 +24,32 @@ Download `ArgusOS_AIO.cmd` manually, then **right-click → Run as Administrator
 
 ```
 ArgusOS-Activation/
-├── ArgusOS_AIO.cmd      # Batch script (run via cmd.exe as admin)
-├── launcher.ps1         # PowerShell launcher (use with irm | iex)
+├── ArgusOS_AIO.cmd      # Main all-in-one activation script (run as admin)
+├── launcher.ps1         # PowerShell launcher for irm | iex
 ├── README.md
 ├── LICENSE
 └── .gitignore
 ```
 
-**How it works:** `launcher.ps1` downloads `ArgusOS_AIO.cmd` to a temp folder, then launches it via `cmd.exe` as Administrator. This is the correct way to run the script from PowerShell.
+## How to Upload to GitHub
+
+1. Create a new repository on GitHub named `ArgusOS-Activation`
+2. Run these commands in the project folder:
+
+```powershell
+cd "C:\Users\ArgusOs\Desktop\cluade\win act\ArgusOS-Activation"
+git init
+git add .
+git commit -m "Initial release: ArgusOS Activation v1.0"
+git remote add origin https://github.com/ArgusOs/ArgusOS-Activation.git
+git branch -M main
+git push -u origin main
+```
+
+3. After uploading, the PowerShell command will work (replace `ArgusOs` with your GitHub username):
+```powershell
+irm https://raw.githubusercontent.com/ArgusOs/ArgusOS-Activation/main/launcher.ps1 | iex
+```
 
 ## How It Works
 
@@ -52,7 +66,7 @@ ArgusOS-Activation/
 
 ## Notes
 
-- HWID and Ohook methods reference the [MAS](https://github.com/massgravel/Microsoft-Activation-Scripts) project for activation modules (GPL-3.0)
+- HWID and Ohook methods reference the [MAS](https://github.com/massgravel/Microsoft-Activation-Scripts) project for activation modules
 - Online KMS is fully self-contained in this script
 - Always verify the URL before executing any script
 

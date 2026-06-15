@@ -56,33 +56,42 @@ set "Gray=90m"
 :menu
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[96m  ___                         ____  _____               %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[96m /   ^|  _____________  ______/ __ \/ ___/               %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[96m/ /^| ^| / ___/ __  / / / / ___/ / / /\__ \               %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[96m/ ___ ^|/ /  / /_/ / /_/ (__  ) /_/ /___/ /               %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m%esc%[96m/_/  ^|_/_/   \__, /\__,_/____/\____//____/               %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[96m            /____/                                      %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m├────────────────────────────────────────────────────────┤%esc%[0m
-echo %esc%[90m│%esc%[0m %esc%[97m  Windows ^& Office Activation Suite - Version %VERSION%      %esc%[0m%esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%  ___                         ____  _____               %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan% /   ^|  _____________  ______/ __ \/ ___/               %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%/ /^| ^| / ___/ __  / / / / ___/ / / /\__ \               %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%/ ___ ^|/ /  / /_/ / /_/ (__  ) /_/ /___/ /               %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m%esc%[%Cyan%/_/  ^|_/_/   \__, /\__,_/____/\____//____/               %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%            /____/                                      %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%├────────────────────────────────────────────────────────┤%esc%[0m
+echo %esc%[%Gray%│%esc%[0m %esc%[%White%  Windows ^& Office Activation Suite - Version %VERSION%      %esc%[0m%esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-echo  %esc%[96m[1]%esc%[97m HWID Activation       %esc%[90m- Windows 10/11 Permanent%esc%[0m
-echo  %esc%[96m[2]%esc%[97m Ohook Activation      %esc%[90m- Microsoft Office Permanent%esc%[0m
-echo  %esc%[96m[3]%esc%[97m Online KMS Activation %esc%[90m- Windows ^& Office 180 Days%esc%[0m
+echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%HWID Activation       %esc%[0m%esc%[%Gray%- Windows 10/11 Permanent%esc%[0m
+echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Ohook Activation      %esc%[0m%esc%[%Gray%- Microsoft Office Permanent%esc%[0m
+echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Online KMS Activation %esc%[0m%esc%[%Gray%- Windows ^& Office 180 Days%esc%[0m
 echo.
-echo  %esc%[96m[4]%esc%[97m Check Status          %esc%[90m- Verify Activation State%esc%[0m
-echo  %esc%[96m[5]%esc%[97m Troubleshooting       %esc%[90m- Reset or Repair Licenses%esc%[0m
+echo   %esc%[%Cyan%[4]%esc%[0m %esc%[%White%Check Status          %esc%[0m%esc%[%Gray%- Verify Activation State%esc%[0m
+echo   %esc%[%Cyan%[5]%esc%[0m %esc%[%White%Troubleshooting       %esc%[0m%esc%[%Gray%- Reset or Repair Licenses%esc%[0m
 echo.
-echo  %esc%[91m[0]%esc%[97m Exit%esc%[0m
+echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Exit%esc%[0m
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[93m   OS: %winos%%esc%[0m
-if defined office_detected echo %esc%[90m│%esc%[93m   Office: Installed%esc%[0m
-if not defined office_detected echo %esc%[90m│%esc%[90m   Office: Not detected%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+set "padded_os=  OS: %winos%                                                          "
+set "padded_os=!padded_os:~0,54!"
+echo %esc%[%Gray%│%esc%[0m %esc%[%Yellow%!padded_os!%esc%[0m %esc%[%Gray%│%esc%[0m
+if defined office_detected (
+    set "padded_off=  Office: Installed (Volume License detected)                      "
+    set "padded_off=!padded_off:~0,54!"
+    echo %esc%[%Gray%│%esc%[0m %esc%[%Yellow%!padded_off!%esc%[0m %esc%[%Gray%│%esc%[0m
+) else (
+    set "padded_off=  Office: Not detected                                             "
+    set "padded_off=!padded_off:~0,54!"
+    echo %esc%[%Gray%│%esc%[0m %esc%[%Gray%!padded_off!%esc%[0m %esc%[%Gray%│%esc%[0m
+)
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-set /p "choice= Select option [0-5]: "
+set /p "choice=Select option [0-5]: "
 
 if "%choice%"=="1" goto hwid
 if "%choice%"=="2" goto ohook
@@ -98,10 +107,10 @@ goto menu
 :hwid
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m                     %esc%[96mHWID ACTIVATION%esc%[0m                    %esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m              %esc%[97mWindows 10/11 Digital License%esc%[0m             %esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m                     %esc%[%Cyan%HWID ACTIVATION%esc%[0m                    %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m              %esc%[%White%Windows 10/11 Digital License%esc%[0m             %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required for this method%esc%[0m
 echo.
@@ -149,10 +158,10 @@ goto menu
 :ohook
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m                    %esc%[96mOHOOK ACTIVATION%esc%[0m                    %esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m               %esc%[97mOffice Permanent Activation%esc%[0m              %esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m                    %esc%[%Cyan%OHOOK ACTIVATION%esc%[0m                    %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m               %esc%[%White%Office Permanent Activation%esc%[0m              %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
@@ -199,22 +208,22 @@ goto menu
 :onlinekms
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m                  %esc%[96mONLINE KMS ACTIVATION%esc%[0m                 %esc%[90m│%esc%[0m
-echo %esc%[90m│%esc%[0m         %esc%[97mWindows + Office - 180 Days Auto-Renew%esc%[0m         %esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m                  %esc%[%Cyan%ONLINE KMS ACTIVATION%esc%[0m                 %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%│%esc%[0m         %esc%[%White%Windows + Office - 180 Days Auto-Renew%esc%[0m         %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
 echo  Select target:
 echo.
-echo  %esc%[96m[1]%esc%[97m Activate Windows%esc%[0m
-echo  %esc%[96m[2]%esc%[97m Activate Office%esc%[0m
-echo  %esc%[96m[3]%esc%[97m Activate Both (Windows + Office)%esc%[0m
+echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%Activate Windows%esc%[0m
+echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Activate Office%esc%[0m
+echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Activate Both (Windows + Office)%esc%[0m
 echo.
-echo  %esc%[91m[0]%esc%[97m Back to Main Menu%esc%[0m
+echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Back to Main Menu%esc%[0m
 echo.
-set /p "kms_choice= Select [0-3]: "
+set /p "kms_choice=Select [0-3]: "
 
 if "%kms_choice%"=="1" goto kmswin
 if "%kms_choice%"=="2" goto kmsoffice
@@ -281,9 +290,9 @@ goto menu
 :checkstatus
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m                 %esc%[96mACTIVATION STATUS CHECK%esc%[0m                %esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m                 %esc%[%Cyan%ACTIVATION STATUS CHECK%esc%[0m                %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
 echo %esc%[%Blue%  Windows Status:%esc%[0m
 cscript //nologo %windir%\system32\slmgr.vbs /xpr 2>nul | findstr /v "ERROR"
@@ -312,18 +321,18 @@ goto menu
 :troubleshoot
 cls
 echo.
-echo %esc%[90m┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[90m│%esc%[0m                  %esc%[96mTROUBLESHOOTING TOOLS%esc%[0m                 %esc%[90m│%esc%[0m
-echo %esc%[90m└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
+echo %esc%[%Gray%│%esc%[0m                  %esc%[%Cyan%TROUBLESHOOTING TOOLS%esc%[0m                 %esc%[%Gray%│%esc%[0m
+echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
 echo.
-echo  %esc%[96m[1]%esc%[97m Reset Windows Activation%esc%[0m
-echo  %esc%[96m[2]%esc%[97m Reset Office Activation%esc%[0m
-echo  %esc%[96m[3]%esc%[97m Check Services%esc%[0m
-echo  %esc%[96m[4]%esc%[97m Fix Licensing (Reinstall tokens)%esc%[0m
+echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%Reset Windows Activation%esc%[0m
+echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Reset Office Activation%esc%[0m
+echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Check Services%esc%[0m
+echo   %esc%[%Cyan%[4]%esc%[0m %esc%[%White%Fix Licensing (Reinstall tokens)%esc%[0m
 echo.
-echo  %esc%[91m[0]%esc%[97m Back to Menu%esc%[0m
+echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Back to Menu%esc%[0m
 echo.
-set /p "tch= Select [0-4]: "
+set /p "tch=Select [0-4]: "
 
 if "%tch%"=="1" (
     echo %esc%[%Yellow%  [*] Resetting Windows activation...%esc%[0m
