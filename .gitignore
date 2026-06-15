@@ -1,0 +1,10 @@
+*.log
+*.tmp
+_temp/
+Debug/
+Release/
+.vs/
+*.user
+*.suo
+.DS_Store
+Thumbs.db
