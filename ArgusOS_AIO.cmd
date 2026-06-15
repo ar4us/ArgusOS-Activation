@@ -45,53 +45,44 @@ if not defined office_detected (
 
 :: ========== COLOR SETUP ==========
 for /F %%a in ('echo prompt $E ^| cmd') do set "esc=%%a"
-set "Red=91m"
-set "Green=92m"
-set "Blue=94m"
-set "Yellow=93m"
-set "Cyan=96m"
-set "White=97m"
-set "Gray=90m"
+set "Red=41;97m"
+set "Green=42;97m"
+set "Blue=44;97m"
+set "Yellow=43;97m"
+set "Cyan=46;97m"
+set "White=107;30m"
 
 :menu
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%  ___                         ____  _____               %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan% /   ^|  _____________  ______/ __ \/ ___/               %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%/ /^| ^| / ___/ __  / / / / ___/ / / /\__ \               %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%/ ___ ^|/ /  / /_/ / /_/ (__  ) /_/ /___/ /               %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m%esc%[%Cyan%/_/  ^|_/_/   \__, /\__,_/____/\____//____/               %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%Cyan%            /____/                                      %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%├────────────────────────────────────────────────────────┤%esc%[0m
-echo %esc%[%Gray%│%esc%[0m %esc%[%White%  Windows ^& Office Activation Suite - Version %VERSION%      %esc%[0m%esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Green%  ========================================================%esc%[0m
+echo %esc%[%Green%  %esc%[0m
+echo %esc%[%Cyan%           AAA                                         %esc%[0m
+echo %esc%[%Cyan%          AAAAA   rrrrr   gggggg  uu   uu  sssss       %esc%[0m
+echo %esc%[%Cyan%         AA   AA  rr  rr  gg   gg uu   uu ss   s      %esc%[0m
+echo %esc%[%Cyan%        AAAAAAAAA rrrrrr  ggggggg uu   uu ssssss      %esc%[0m
+echo %esc%[%Cyan%        AA   AA  rr  rr  gg   gg uu   uu    ss      %esc%[0m
+echo %esc%[%Cyan%        AA   AA  rr   rr  gggggg   uuuuu  sssss      %esc%[0m
+echo %esc%[%Cyan%                                                     %esc%[0m
+echo %esc%[%Green%  %esc%[0m
+echo %esc%[%Green%  ========================================================%esc%[0m
+echo %esc%[%Yellow%             ArgusOS Activation v%VERSION%         %esc%[0m
+echo %esc%[%Yellow%          Windows ^& Office Activator              %esc%[0m
+echo %esc%[%Green%  ========================================================%esc%[0m
 echo.
-echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%HWID Activation       %esc%[0m%esc%[%Gray%- Windows 10/11 Permanent%esc%[0m
-echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Ohook Activation      %esc%[0m%esc%[%Gray%- Microsoft Office Permanent%esc%[0m
-echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Online KMS Activation %esc%[0m%esc%[%Gray%- Windows ^& Office 180 Days%esc%[0m
+echo %esc%[%Green%  [1] HWID Activation        Windows 10/11 Permanent%esc%[0m
+echo %esc%[%Green%  [2] Ohook Activation       Office (All Versions)%esc%[0m
+echo %esc%[%Green%  [3] Online KMS Activation  Windows + Office 180d%esc%[0m
 echo.
-echo   %esc%[%Cyan%[4]%esc%[0m %esc%[%White%Check Status          %esc%[0m%esc%[%Gray%- Verify Activation State%esc%[0m
-echo   %esc%[%Cyan%[5]%esc%[0m %esc%[%White%Troubleshooting       %esc%[0m%esc%[%Gray%- Reset or Repair Licenses%esc%[0m
+echo %esc%[%Blue%  [4] Check Activation Status%esc%[0m
+echo %esc%[%Blue%  [5] Troubleshooting%esc%[0m
 echo.
-echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Exit%esc%[0m
+echo %esc%[%Red%  [0] Exit%esc%[0m
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-set "padded_os=  OS: %winos%                                                          "
-set "padded_os=!padded_os:~0,54!"
-echo %esc%[%Gray%│%esc%[0m %esc%[%Yellow%!padded_os!%esc%[0m %esc%[%Gray%│%esc%[0m
-if defined office_detected (
-    set "padded_off=  Office: Installed (Volume License detected)                      "
-    set "padded_off=!padded_off:~0,54!"
-    echo %esc%[%Gray%│%esc%[0m %esc%[%Yellow%!padded_off!%esc%[0m %esc%[%Gray%│%esc%[0m
-) else (
-    set "padded_off=  Office: Not detected                                             "
-    set "padded_off=!padded_off:~0,54!"
-    echo %esc%[%Gray%│%esc%[0m %esc%[%Gray%!padded_off!%esc%[0m %esc%[%Gray%│%esc%[0m
-)
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Yellow%  OS: %winos% %esc%[0m
+if defined office_detected echo %esc%[%Yellow%  Office: Installed %esc%[0m
 echo.
-set /p "choice=Select option [0-5]: "
+set /p "choice= Select option [0-5]: "
 
 if "%choice%"=="1" goto hwid
 if "%choice%"=="2" goto ohook
@@ -107,10 +98,10 @@ goto menu
 :hwid
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m                     %esc%[%Cyan%HWID ACTIVATION%esc%[0m                    %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m              %esc%[%White%Windows 10/11 Digital License%esc%[0m             %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[%Cyan%         HWID Activation                        %esc%[0m
+echo %esc%[%Cyan%    Windows 10/11 Digital License               %esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required for this method%esc%[0m
 echo.
@@ -139,7 +130,7 @@ if not exist "%hwid_temp%" (
     goto menu
 )
 
-echo %esc%[%Green%  [✓] HWID module downloaded%esc%[0m
+echo %esc%[%Green%  [G��] HWID module downloaded%esc%[0m
 echo %esc%[%Yellow%  [!] The MAS HWID script will now run.%esc%[0m
 echo %esc%[%Yellow%  [!] Follow its instructions to activate.%esc%[0m
 echo.
@@ -158,10 +149,10 @@ goto menu
 :ohook
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m                    %esc%[%Cyan%OHOOK ACTIVATION%esc%[0m                    %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m               %esc%[%White%Office Permanent Activation%esc%[0m              %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[%Cyan%         Ohook Activation                       %esc%[0m
+echo %esc%[%Cyan%    Office Permanent Activation                 %esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
@@ -189,7 +180,7 @@ if not exist "%ohook_temp%" (
     goto menu
 )
 
-echo %esc%[%Green%  [✓] Ohook module downloaded%esc%[0m
+echo %esc%[%Green%  [G��] Ohook module downloaded%esc%[0m
 echo %esc%[%Yellow%  [!] The MAS Ohook script will now run.%esc%[0m
 echo %esc%[%Yellow%  [!] Follow its instructions to activate Office.%esc%[0m
 echo.
@@ -208,22 +199,21 @@ goto menu
 :onlinekms
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m                  %esc%[%Cyan%ONLINE KMS ACTIVATION%esc%[0m                 %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%│%esc%[0m         %esc%[%White%Windows + Office - 180 Days Auto-Renew%esc%[0m         %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[%Cyan%       Online KMS Activation                    %esc%[0m
+echo %esc%[%Cyan%    Windows + Office - 180 Days Auto-Renew      %esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
 echo.
 echo %esc%[%Yellow%  [!] Internet required%esc%[0m
 echo.
 echo  Select target:
 echo.
-echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%Activate Windows%esc%[0m
-echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Activate Office%esc%[0m
-echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Activate Both (Windows + Office)%esc%[0m
+echo %esc%[%Green%  [1] Activate Windows%esc%[0m
+echo %esc%[%Green%  [2] Activate Office%esc%[0m
+echo %esc%[%Green%  [3] Activate Both (Windows + Office)%esc%[0m
+echo %esc%[%Red%  [0] Back to Main Menu%esc%[0m
 echo.
-echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Back to Main Menu%esc%[0m
-echo.
-set /p "kms_choice=Select [0-3]: "
+set /p "kms_choice= Select [0-3]: "
 
 if "%kms_choice%"=="1" goto kmswin
 if "%kms_choice%"=="2" goto kmsoffice
@@ -273,13 +263,13 @@ for %%v in (16.0 15.0 14.0) do (
         cscript //nologo "!ospp_path!" /act >nul 2>&1
     )
 )
-if not defined office_found echo %esc%[%Red%  [✗] Office not found%esc%[0m
+if not defined office_found echo %esc%[%Red%  [G��] Office not found%esc%[0m
 call :create_renewal_task Office
 goto :eof
 
 :kmsdone
 echo.
-echo %esc%[%Green%  [✓] KMS activation process complete!%esc%[0m
+echo %esc%[%Green%  [G��] KMS activation process complete!%esc%[0m
 echo %esc%[%Yellow%  A scheduled task will auto-renew every 7 days%esc%[0m
 pause
 goto menu
@@ -290,9 +280,9 @@ goto menu
 :checkstatus
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m                 %esc%[%Cyan%ACTIVATION STATUS CHECK%esc%[0m                %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[%Cyan%        Activation Status Check                %esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
 echo.
 echo %esc%[%Blue%  Windows Status:%esc%[0m
 cscript //nologo %windir%\system32\slmgr.vbs /xpr 2>nul | findstr /v "ERROR"
@@ -321,25 +311,24 @@ goto menu
 :troubleshoot
 cls
 echo.
-echo %esc%[%Gray%┌────────────────────────────────────────────────────────┐%esc%[0m
-echo %esc%[%Gray%│%esc%[0m                  %esc%[%Cyan%TROUBLESHOOTING TOOLS%esc%[0m                 %esc%[%Gray%│%esc%[0m
-echo %esc%[%Gray%└────────────────────────────────────────────────────────┘%esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
+echo %esc%[%Cyan%         Troubleshooting Tools                 %esc%[0m
+echo %esc%[%Cyan%  =============================================%esc%[0m
 echo.
-echo   %esc%[%Cyan%[1]%esc%[0m %esc%[%White%Reset Windows Activation%esc%[0m
-echo   %esc%[%Cyan%[2]%esc%[0m %esc%[%White%Reset Office Activation%esc%[0m
-echo   %esc%[%Cyan%[3]%esc%[0m %esc%[%White%Check Services%esc%[0m
-echo   %esc%[%Cyan%[4]%esc%[0m %esc%[%White%Fix Licensing (Reinstall tokens)%esc%[0m
+echo %esc%[%Green%  [1] Reset Windows Activation%esc%[0m
+echo %esc%[%Green%  [2] Reset Office Activation%esc%[0m
+echo %esc%[%Green%  [3] Check Services%esc%[0m
+echo %esc%[%Green%  [4] Fix Licensing (Reinstall tokens)%esc%[0m
+echo %esc%[%Red%  [0] Back to Menu%esc%[0m
 echo.
-echo   %esc%[%Red%[0]%esc%[0m %esc%[%White%Back to Menu%esc%[0m
-echo.
-set /p "tch=Select [0-4]: "
+set /p "tch= Select [0-4]: "
 
 if "%tch%"=="1" (
     echo %esc%[%Yellow%  [*] Resetting Windows activation...%esc%[0m
     cscript //nologo %windir%\system32\slmgr.vbs /upk >nul 2>&1
     cscript //nologo %windir%\system32\slmgr.vbs /cpky >nul 2>&1
     cscript //nologo %windir%\system32\slmgr.vbs /rearm >nul 2>&1
-    echo %esc%[%Green%  [✓] Windows activation reset%esc%[0m
+    echo %esc%[%Green%  [G��] Windows activation reset%esc%[0m
     echo %esc%[%Yellow%  Reboot required%esc%[0m
     pause
     goto troubleshoot
@@ -348,7 +337,7 @@ if "%tch%"=="2" goto resetoffice
 if "%tch%"=="3" (
     echo.
     for %%s in (sppsvc ClipSVC LicenseManager Winmgmt wlidsvc) do (
-        sc query %%s | find "RUNNING" >nul && echo %esc%[%Green%  [✓] %%s - Running%esc%[0m || echo %esc%[%Red%  [✗] %%s - Stopped%esc%[0m
+        sc query %%s | find "RUNNING" >nul && echo %esc%[%Green%  [G��] %%s - Running%esc%[0m || echo %esc%[%Red%  [G��] %%s - Stopped%esc%[0m
     )
     pause
     goto troubleshoot
@@ -359,7 +348,7 @@ if "%tch%"=="4" (
         for /r "%windir%\system32\spp\tokens\skus" %%f in (*.xrm-ms) do (
             cscript //nologo %windir%\system32\slmgr.vbs /ilc "%%f" >nul 2>&1
         )
-        echo %esc%[%Green%  [✓] Licensing files reinstalled%esc%[0m
+        echo %esc%[%Green%  [G��] Licensing files reinstalled%esc%[0m
     )
     pause
     goto troubleshoot
@@ -380,7 +369,7 @@ if defined osp_path (
         cscript //nologo "%osp_path%" /unpkey:%%a >nul 2>&1
     )
     cscript //nologo "%osp_path%" /rearm >nul 2>&1
-    echo %esc%[%Green%  [✓] Office activation reset%esc%[0m
+    echo %esc%[%Green%  [G��] Office activation reset%esc%[0m
 )
 pause
 goto troubleshoot
@@ -416,7 +405,7 @@ if /i "%edition%"=="CoreSingleLanguage" set gvlk=7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH
 if defined gvlk (
     cscript //nologo %windir%\system32\slmgr.vbs /ipk %gvlk% >nul 2>&1
     if !errorlevel! EQU 0 (
-        echo %esc%[%Green%  [✓] GVLK key installed: %gvlk%%esc%[0m
+        echo %esc%[%Green%  [G��] GVLK key installed: %gvlk%%esc%[0m
         set key_installed=1
     ) else (
         echo %esc%[%Yellow%  [!] Generic key failed, trying alternative...%esc%[0m
@@ -428,11 +417,11 @@ if %key_installed% EQU 0 (
     for %%k in (W269N-WFGWX-YVC9B-4J6C9-T83GX TX9XD-98N7V-6WMQ6-BX7FG-H8Q99) do (
         cscript //nologo %windir%\system32\slmgr.vbs /ipk %%k >nul 2>&1
         if !errorlevel! EQU 0 (
-            echo %esc%[%Green%  [✓] Fallback key installed: %%k%esc%[0m
+            echo %esc%[%Green%  [G��] Fallback key installed: %%k%esc%[0m
             goto :eof
         )
     )
-    echo %esc%[%Red%  [✗] Could not find matching GVLK key%esc%[0m
+    echo %esc%[%Red%  [G��] Could not find matching GVLK key%esc%[0m
     exit /b 1
 )
 exit /b 0
@@ -456,13 +445,13 @@ goto :eof
 :check_win_activation
 cscript //nologo %windir%\system32\slmgr.vbs /xpr 2>nul | findstr /i "permanently" >nul 2>&1
 if %errorlevel% EQU 0 (
-    echo %esc%[%Green%  [✓] Windows is permanently activated%esc%[0m
+    echo %esc%[%Green%  [G��] Windows is permanently activated%esc%[0m
 ) else (
     cscript //nologo %windir%\system32\slmgr.vbs /xpr 2>nul | findstr /i "days" >nul 2>&1
     if !errorlevel! EQU 0 (
-        for /f "delims=" %%a in ('cscript //nologo %windir%\system32\slmgr.vbs /xpr 2^>nul ^| find "days"') do echo %esc%[%Green%  [✓] %%a%esc%[0m
+        for /f "delims=" %%a in ('cscript //nologo %windir%\system32\slmgr.vbs /xpr 2^>nul ^| find "days"') do echo %esc%[%Green%  [G��] %%a%esc%[0m
     ) else (
-        echo %esc%[%Red%  [✗] Activation status unknown%esc%[0m
+        echo %esc%[%Red%  [G��] Activation status unknown%esc%[0m
     )
 )
 goto :eof
@@ -498,7 +487,7 @@ echo ^)
 :: Create scheduled task (runs every 7 days)
 schtasks /create /tn "%task_name%" /tr "cmd.exe /c \"%task_path%\renew_%~1.cmd\"" /sc weekly /d SUN /st 09:00 /f >nul 2>&1
 if %errorlevel% EQU 0 (
-    echo %esc%[%Green%  [✓] Auto-renewal task created: Weekly on Sunday 9:00 AM%esc%[0m
+    echo %esc%[%Green%  [G��] Auto-renewal task created: Weekly on Sunday 9:00 AM%esc%[0m
 ) else (
     echo %esc%[%Yellow%  [!] Could not create scheduled task (run as admin)%esc%[0m
 )
